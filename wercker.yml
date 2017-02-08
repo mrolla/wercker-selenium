@@ -1,0 +1,14 @@
+box: debian:jessie
+
+build:
+  services:
+    - name: selenium
+      id: selenium/standalone-chrome
+  steps:
+    - script:
+        name: install curl
+        code: apt-get update && apt-get install -y curl
+    - script:
+        name: ping selenium
+        code: curl selenium:4444
+
